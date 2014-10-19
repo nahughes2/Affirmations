@@ -1,5 +1,6 @@
 package gappy.affirmations.dataitems;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -9,8 +10,6 @@ public class CalendarItem {
 
     private String mTitle;
     private String mLink;
-    private String mGuide;
-    private String mDescription;
     private String mDate;
     private Date mEventDate;
 
@@ -31,28 +30,27 @@ public class CalendarItem {
         this.mLink = mLink;
     }
 
-    public String getmGuide() {
-        return mGuide;
-    }
-
-    public void setmGuide(String mGuide) {
-        this.mGuide = mGuide;
-    }
-
-    public String getmDescription() {
-        return mDescription;
-    }
-
-    public void setmDescription(String mDescription) {
-        this.mDescription = mDescription;
-    }
-
     public String getmDate() {
         return mDate;
     }
 
-    public void setmDate(String mDate) {
-        this.mDate = mDate;
+    public void setmDate(String date) {
+        Date convertedDate = null;
+        //convert string to date
+        //Wed, 8 Oct 2014 16:30:00 GMT
+
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy:HH:mm:SS Z");
+        mDate = DATE_FORMAT.format(date);
+    }
+
+    private Date convertDate(String date) {
+        Date convertedDate = null;
+        //convert string to date
+        //Wed, 8 Oct 2014 16:30:00 GMT
+
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy:HH:mm:SS Z");
+        return convertedDate;
+
     }
 
 }
